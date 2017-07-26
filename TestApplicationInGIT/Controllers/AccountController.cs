@@ -50,6 +50,18 @@ namespace TestApplicationInGIT.Controllers
             }
         }
 
+        public ApplicationUserManager UserManager1
+        {
+            get
+            {
+                return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
 
         // GET api/Account/UserInfo
